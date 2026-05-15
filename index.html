@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ivan Agustín González — DevOps &amp; SRE Engineer</title>
+  <title>Agustín Gonzales — DevOps &amp; SRE Engineer</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
@@ -241,51 +241,42 @@
       transform: translateY(-1px);
     }
 
-    /* Terminal */
-    .hero-terminal {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      overflow: hidden;
-      font-family: var(--font-mono);
-      font-size: 13px;
-      box-shadow: 0 32px 64px rgba(0,0,0,0.4);
-    }
-    .terminal-header {
-      background: var(--bg-surface);
-      padding: 12px 16px;
+    /* Photo */
+    .hero-photo {
       display: flex;
+      justify-content: center;
       align-items: center;
-      gap: 7px;
-      border-bottom: 1px solid var(--border);
     }
-    .t-dot { width: 12px; height: 12px; border-radius: 50%; }
-    .t-dot.r { background: #ef4444; }
-    .t-dot.y { background: #f59e0b; }
-    .t-dot.g { background: #22c55e; }
-    .terminal-file {
-      margin-left: auto;
-      margin-right: auto;
-      font-size: 11px;
-      color: var(--text-muted);
+    .photo-frame {
+      position: relative;
+      width: 380px;
+      height: 460px;
+      border-radius: 20px;
+      overflow: hidden;
+      border: 1px solid var(--accent-border);
+      box-shadow:
+        0 0 0 1px rgba(168,85,247,0.1),
+        0 0 60px rgba(168,85,247,0.18),
+        0 32px 64px rgba(0,0,0,0.5);
     }
-    .terminal-body { padding: 24px; line-height: 1.9; }
-    .t-line { display: flex; align-items: flex-start; gap: 8px; }
-    .t-prompt { color: var(--accent); flex-shrink: 0; user-select: none; }
-    .t-cmd { color: var(--text-primary); }
-    .t-out { color: var(--text-secondary); padding-left: 20px; }
-    .t-key { color: var(--accent-light); }
-    .t-val { color: #86efac; }
-    .t-cursor {
-      display: inline-block;
-      width: 8px;
-      height: 15px;
-      background: var(--accent);
-      animation: blink 1s step-end infinite;
-      vertical-align: middle;
-      margin-left: 2px;
+    .photo-frame::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        transparent 60%,
+        rgba(9,9,11,0.6) 100%
+      );
+      pointer-events: none;
     }
-    @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+    .photo-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+    }
 
     /* ── SECTIONS ── */
     section { padding: 100px 24px; }
@@ -670,7 +661,7 @@
     /* ── RESPONSIVE ── */
     @media (max-width: 960px) {
       .hero-inner { grid-template-columns: 1fr; }
-      .hero-terminal { display: none; }
+      .hero-photo { display: none; }
       .projects-grid { grid-template-columns: 1fr 1fr; }
       .project-card.featured { grid-template-columns: 1fr; }
       .project-card.featured .project-img { min-height: 220px; }
@@ -705,7 +696,7 @@
 <!-- ─── NAVBAR ─── -->
 <nav>
   <div class="nav-inner">
-    <a href="#" class="nav-logo"><span class="bracket">{</span>ivan.gz<span class="bracket">}</span></a>
+    <a href="#" class="nav-logo"><span class="bracket">{</span>agustin.gs<span class="bracket">}</span></a>
     <ul class="nav-links" id="navLinks">
       <li><a href="#skills">Habilidades</a></li>
       <li><a href="#projects">Proyectos</a></li>
@@ -727,7 +718,7 @@
         disponible para proyectos
       </div>
       <h1 class="hero-title fade-in d1">
-        Ivan Agustín<br><span class="accent">González</span>
+        Agustín<br><span class="accent">Gonzales</span>
       </h1>
       <p class="hero-subtitle fade-in d2">
         Ingeniero DevOps &amp; SRE especializado en automatización, arquitecturas cloud escalables e inteligencia artificial aplicada a operaciones.
@@ -738,31 +729,9 @@
       </div>
     </div>
 
-    <div class="hero-terminal fade-in d2">
-      <div class="terminal-header">
-        <div class="t-dot r"></div>
-        <div class="t-dot y"></div>
-        <div class="t-dot g"></div>
-        <span class="terminal-file">ivan@devops ~ zsh</span>
-      </div>
-      <div class="terminal-body">
-        <div class="t-line"><span class="t-prompt">$</span><span class="t-cmd">whoami</span></div>
-        <div class="t-out">ivan_gonzalez</div>
-        <br>
-        <div class="t-line"><span class="t-prompt">$</span><span class="t-cmd">cat profile.json</span></div>
-        <div class="t-out">{<br>
-&nbsp;&nbsp;<span class="t-key">"role"</span>: <span class="t-val">"DevOps Engineer"</span>,<br>
-&nbsp;&nbsp;<span class="t-key">"company"</span>: <span class="t-val">"Claro"</span>,<br>
-&nbsp;&nbsp;<span class="t-key">"location"</span>: <span class="t-val">"Córdoba, AR"</span>,<br>
-&nbsp;&nbsp;<span class="t-key">"focus"</span>: [<br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-val">"Cloud Architecture"</span>,<br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-val">"AI/ML Ops"</span>,<br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-val">"Infrastructure as Code"</span><br>
-&nbsp;&nbsp;],<br>
-&nbsp;&nbsp;<span class="t-key">"open_to_work"</span>: <span class="t-val">true</span><br>
-}</div>
-        <br>
-        <div class="t-line"><span class="t-prompt">$</span><span class="t-cursor"></span></div>
+    <div class="hero-photo fade-in d2">
+      <div class="photo-frame">
+        <img src="html/assets/agustin.jpg" alt="Agustín Gonzales — DevOps Engineer">
       </div>
     </div>
   </div>
@@ -1091,8 +1060,8 @@
 <!-- ─── FOOTER ─── -->
 <footer>
   <div class="footer-inner">
-    <div class="footer-logo"><span class="p">{</span>ivan.gz<span class="p">}</span></div>
-    <p class="footer-copy">© 2025 Ivan Agustín González · Córdoba, Argentina</p>
+    <div class="footer-logo"><span class="p">{</span>agustin.gs<span class="p">}</span></div>
+    <p class="footer-copy">© 2025 Agustín Gonzales · Córdoba, Argentina</p>
     <div class="footer-links">
       <a href="https://github.com/Codeodata" target="_blank" rel="noopener"><i class="fab fa-github"></i></a>
       <a href="https://www.linkedin.com/in/gonzales-agustin/" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i></a>
